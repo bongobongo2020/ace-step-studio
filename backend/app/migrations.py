@@ -22,3 +22,5 @@ async def run_migrations(conn: AsyncConnection) -> None:
     await _ensure_column(conn, "generations", "cover_color VARCHAR(16)", "cover_color")
     await _ensure_column(conn, "generations", "cover_icon VARCHAR(32)", "cover_icon")
     await _ensure_column(conn, "generations", "cover_image_path VARCHAR", "cover_image_path")
+    await _ensure_column(conn, "generations", "source_audio_path VARCHAR", "source_audio_path")
+    await _ensure_column(conn, "generations", "reference_audio_path VARCHAR", "reference_audio_path")

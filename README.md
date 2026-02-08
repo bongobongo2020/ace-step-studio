@@ -2,6 +2,8 @@
 
 Local-first Suno-style music studio powered by ACE-Step 1.5.
 
+> **Forked from** [roblaughter/ace-step-studio](https://github.com/roblaughter/ace-step-studio)
+
 ACE-Step Studio uses:
 - FastAPI backend for generation orchestration, model/runtime config, and API routes
 - React + Vite frontend with one-page create/library/player workflow
@@ -14,6 +16,52 @@ This project is designed for personal/self-hosted use and can run on macOS and W
 ## Screenshot
 
 ![Custom mode UI](docs/images/custom-mode.png)
+
+## Quick Install (UV)
+
+The easiest way to get started is using [uv](https://github.com/astral-sh/uv), a fast Python package installer.
+
+**Prerequisites:**
+- Python 3.10+
+- Node.js 18+ (for frontend)
+- Git (for cloning ACE-Step-1.5 repo)
+
+**Windows:**
+```cmd
+# Install uv (if not already installed)
+pip install uv
+
+# Run the installer - it will:
+# - Clone ACE-Step-1.5 repo automatically
+# - Create virtual environment
+# - Install all dependencies
+# - Download required AI models
+# - Start the app
+scripts\install_and_run.bat
+```
+
+**macOS/Linux:**
+```bash
+# Install uv (if not already installed)
+pip install uv
+
+# Clone ACE-Step-1.5 repo first
+git clone https://github.com/ACE-Step/ACE-Step-1.5.git ../ACE-Step-1.5
+
+# Create virtual environment and install dependencies
+cd backend
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+uv pip install -e .
+
+# Install frontend dependencies
+cd ../frontend
+npm install
+
+# Start the app (see scripts/start.sh or scripts/start.bat)
+```
+
+**First run will download several GB of AI models automatically.**
 
 ## Installation
 
@@ -32,16 +80,18 @@ See the full step-by-step setup guide here: [docs/installation.md](./docs/instal
 
 ## Quick Start
 
-```bash
-# Install (macOS)
-./scripts/install_mac.sh
+**Easiest (Windows with uv):**
+```cmd
+scripts\install_and_run.bat
+```
 
-# Start app
+**macOS:**
+```bash
+./scripts/install_mac.sh
 ./scripts/start.sh
 ```
 
-Windows:
-
+**Windows (manual):**
 ```powershell
 ./scripts/install_windows.ps1
 ./scripts/start.bat
